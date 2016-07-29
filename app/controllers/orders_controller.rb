@@ -55,7 +55,14 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
+    send_email
   end
+
+  def send_email
+    User.find_each do |user|
+      UserMailer.order_email(user).deliver_now
+    end
+  end
 
   # returns total in cents not dollars (stripe uses cents as well)
   def cart_total
@@ -68,4 +75,20 @@ class OrdersController < ApplicationController
     total
   end
 
+  # require 'mail'
+
+  # mail = Mail.new do
+  #   from    'noreply@gmail.com'
+  #   to      'shannon.jane.hogan@gmail.com'
+  #   subject 'This is a test email'
+  #   body    File.read('body.txt')
+  # end
+
+  # mail.to_s
+
+  # Mail.defaults do
+  #   delivery_method :sendmail, :location => '/absolute/path/to/your/sendmail'
+  # end
+
+end
 end
