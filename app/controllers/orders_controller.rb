@@ -8,11 +8,13 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+    respond_to do |format|
     if order.valid?
-
+      UserMailer.order_email(@user).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
+      format.json { render json: @user.errors, status: :unprocessable_entity }
       redirect_to cart_path, error: order.errors.full_messages.first
     end
 
