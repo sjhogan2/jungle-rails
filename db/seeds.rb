@@ -121,12 +121,35 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
+product = cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
+})
+
+User.create!({
+  name: "Sam",
+  email: "sam@sam.com",
+  password: "sam"
+})
+
+User.create!({
+  name: "Phil",
+  email: "phil@phil.com",
+  password: "phil"
+})
+
+product.reviews.create!({
+  rating: 3,
+  description: "Meh",
+  user_id: 1
+})
+
+product.reviews.create!({
+  rating: 4,
+  user_id: 2
 })
 
 
