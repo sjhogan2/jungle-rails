@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160728194240) do
     t.datetime "updated_at",       null: false
     t.string   "stripe_charge_id"
     t.string   "email"
+    t.string   "order"
   end
 
   create_table "products", force: :cascade do |t|
