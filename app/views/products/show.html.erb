@@ -1,17 +1,12 @@
 <section class="products-show">
-
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
   </header>
-
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -23,9 +18,17 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <div class="col-sm-8">
+        <dl class="dl-horizontal">
+         <% @reviews.each do |review| %>
+          <dt>User Rating</dt>
+          <dd><%= review.rating %></dd>
+          <dt>Description</dt>
+          <dd><%= review.description %></dd>
+          <% end %>
+        </dl>
+      </div>
       </div>
     </div>
-
   </article>
-
 </section>
