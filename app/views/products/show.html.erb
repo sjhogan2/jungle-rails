@@ -20,14 +20,21 @@
         </dl>
         <div class="col-sm-8">
         <dl class="dl-horizontal">
-         <% @reviews.each do |review| %>
+         <% @reviews.order(created_at: :desc).each do |review| %>
           <dt>User Rating</dt>
           <dd><%= review.rating %></dd>
           <dt>Description</dt>
           <dd><%= review.description %></dd>
+          <% if current_user == review.user %>
+            <td>
+              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
+            </td>
           <% end %>
+        <% end %>
         </dl>
       </div>
+
+      <% if current_user %>
       <div class="col-sm-8">
       <dl class="dl-horizontal">
         <%= form_for [@product, @review] do |form| %>
@@ -39,6 +46,7 @@
         <% end %>
       </dl>
       </div>
+      <% end %>
       </div>
     </div>
   </article>

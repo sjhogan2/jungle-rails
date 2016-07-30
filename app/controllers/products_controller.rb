@@ -8,12 +8,8 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @reviews = @product.reviews
 
-
-
-    @review = @product.reviews.new
-
     @review = Review.new
-    @product.reviews << @review
+
 
 
 
