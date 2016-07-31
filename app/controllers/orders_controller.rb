@@ -69,20 +69,5 @@ class OrdersController < ApplicationController
     total
   end
 
-  # require 'mail'
-
-  # mail = Mail.new do
-  #   from    'noreply@gmail.com'
-  #   to      'shannon.jane.hogan@gmail.com'
-  #   subject 'This is a test email'
-  #   body    File.read('body.txt')
-  # end
-
-  # mail.to_s
-
-  # Mail.defaults do
-  #   delivery_method :sendmail, :location => '/absolute/path/to/your/sendmail'
-  # end
-
 end
 
