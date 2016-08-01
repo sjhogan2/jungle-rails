@@ -1,19 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  # describe '#id' do
-  #   it 'should not exist for new records' do
-  #     @product = Product.new
-  #     expect(@product.id).to be_nil
-  #   end
-
-  #   it 'should be auto-assigned by AR for saved records' do
-  #     @product = Product.new
-  #     @product.save!
-
-  #     expect(@product.id).to be_present
-  #   end
-  # end
   describe 'Validations' do
     before :each do
       @category = Category.create!(name: "Furniture")
