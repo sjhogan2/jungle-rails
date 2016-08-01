@@ -1,10 +1,6 @@
-
 <% quantity = line_item.quantity %>
-
 <% if product = Product.find_by(id: line_item.product_id) %>
   <% item_total = product.price * quantity %>
-
-
   <tr>
     <td>
       <%= image_tag product.image.tiny %>

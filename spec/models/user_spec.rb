@@ -54,22 +54,22 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials(email, password)).to eql false
     end
     it "works when login email and password do match db email and password" do
-      User.create!(name: "Sam", email: "TEST3@TEST.com", password: "sam", password_confirmation: "sam")
+      user = User.create!(name: "Sam", email: "TEST3@TEST.com", password: "sam", password_confirmation: "sam")
       email = "TEST3@TEST.com"
       password = "sam"
-      expect(User.authenticate_with_credentials(email, password)).to eql true
+      expect(User.authenticate_with_credentials(email, password)).to eql user
     end
       it "works when login email includes spaces" do
-      User.create!(name: "Sam", email: "example@domain.com", password: "sam", password_confirmation: "sam")
+      user = User.create!(name: "Sam", email: "example@domain.com", password: "sam", password_confirmation: "sam")
       email = " example@domain.com "
       password = "sam"
-      expect(User.authenticate_with_credentials(email, password)).to eql true
+      expect(User.authenticate_with_credentials(email, password)).to eql user
     end
      it "works when login email has weird cases" do
-      User.create!(name: "Sam", email: "eXample1@domain.COM", password: "sam", password_confirmation: "sam")
+      user = User.create!(name: "Sam", email: "eXample1@domain.COM", password: "sam", password_confirmation: "sam")
       email = "EXAMPLe1@DOMAIN.CoM"
       password = "sam"
-      expect(User.authenticate_with_credentials(email, password)).to eql true
+      expect(User.authenticate_with_credentials(email, password)).to eql user
     end
   end
 end
