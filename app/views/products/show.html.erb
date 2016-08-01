@@ -25,10 +25,13 @@
           <dd><%= review.rating %></dd>
           <dt>Description</dt>
           <dd><%= review.description %></dd>
-          <% if current_user == review.user %>
-            <td>
-              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
-            </td>
+          <br>
+           <% if current_user == review.user %>
+          <dt> Delete your review </dt>
+          <dd>
+            <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete %>
+          </dd>
+            <br>
           <% end %>
         <% end %>
         </dl>

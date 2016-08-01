@@ -1,4 +1,4 @@
-<% quantity = line_item.quantity %>
+<% quantity = line_item.quantity.to_i %>
 <% if product = Product.find_by(id: line_item.product_id) %>
   <% item_total = product.price * quantity %>
   <tr>

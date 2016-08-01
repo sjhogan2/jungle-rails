@@ -20,7 +20,7 @@
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
         <% if @cart_total == 0 %>
-          <center><h2> Looks like your cart is empty =( Click the link below to add some products to your cart! </h2>
+          <center><h2> Looks like your cart is empty! Click the link below to add some products to your cart! </h2>
           <%= link_to 'Home Page', products_path %> </center>
         <% end %>
         <br>
