@@ -20,11 +20,13 @@ RSpec.feature "Visitor navigates to product details", type: :feature, js: true d
   scenario "They see that product's details" do
     # ACT
     visit root_path
-    find('').click
+    product = page.first("article.product")
+    product.find("header a").click
 
     # DEBUG / VERIFY
+    expect(page).to have_css('section.products-show')
     save_screenshot
-    expect(page).to have_css 'article.product', count: 10
+
   end
 
 end
