@@ -1,5 +1,5 @@
 class AddProductRefToReviews < ActiveRecord::Migration
   def change
-    add_reference :reviews, :product, index: true, foreign_key: true
+    add_column :reviews, :product_id, :integer
   end
 end

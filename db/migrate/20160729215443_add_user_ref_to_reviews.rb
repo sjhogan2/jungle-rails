@@ -1,5 +1,5 @@
 class AddUserRefToReviews < ActiveRecord::Migration
   def change
-    add_reference :reviews, :user, index: true, foreign_key: true
+    add_column :reviews, :user_id, :integer
   end
 end
