@@ -13,9 +13,6 @@ def open_asset(file_name)
   File.open(Rails.root.join('db', 'seed_assets', file_name))
 end
 
-# Only run on development (local) instances not on production, etc.
-# raise "Development seeds only (for now)!" unless Rails.env.development?
-
 # Let's do this ...
 
 ## CATEGORIES
