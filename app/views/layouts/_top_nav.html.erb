@@ -27,11 +27,11 @@
         </li>
       </ul>
       <ul class="nav navbar-nav">
-       <li id = "signed-in">
        <% if current_user %>
+       <li id="signed-in">
          Signed in as <%= current_user.name %></li> <li> <%= link_to "Logout", '/logout' %></li>
-       <li>
        <% else %>
+       <li>
          <%= link_to 'Login', '/login' %></li> <li> <%= link_to 'Signup', '/signup' %>
        <% end %>
        </li>
