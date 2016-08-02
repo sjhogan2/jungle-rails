@@ -37,5 +37,6 @@ module Jungle
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.secret_key_base = "3b7cd727ee24e8444053437c36cc66c3"
   end
 end
